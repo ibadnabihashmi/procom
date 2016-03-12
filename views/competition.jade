@@ -1,0 +1,231 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Procom - MMXVI
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        // Le styles
+        link(href='assets/css/bootstrap.css', rel='stylesheet')
+        link(href='assets/css/bootstrap-responsive.css', rel='stylesheet')
+        link(href='assets/css/typography.css', rel='stylesheet')
+        link(href='stylesheets/supersized.css', rel='stylesheet')
+        link(href='stylesheets/supersized.shutter.css', rel='stylesheet')
+        link(href='stylesheets/jquery.tweet.css', rel='stylesheet')
+        link(href='stylesheets/flexslider.css', rel='stylesheet')
+        // Isotope
+        link(rel='stylesheet', href='stylesheets/prettyPhoto.css')
+        link(rel='stylesheet', href='stylesheets/isotope.css')
+        // Custom style
+        link(href='stylesheets/icomoon.css', rel='stylesheet')
+        link(href='stylesheets/responsive-nav.css', rel='stylesheet')
+        link(href='stylesheets/style.css', rel='stylesheet')
+    body
+        #fb-root
+        script.
+            (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=887877234622664";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        header#mobile-header.hidden-desktop.clearfix
+            #nav
+                ul.clearfix
+                    li
+                        a.scroll-link(href='/#header', data-soffset='0') Home
+                    li
+                        a.scroll-link(href='/#about', data-soffset='0') About
+                    li
+                        a.scroll-link(href='/#registration', data-soffset='0') registration
+                    li
+                        a.scroll-link(href='/#sponsors', data-soffset='0') sponsors
+                    li
+                        a.scroll-link(href='/#contact', data-soffset='0') Contact
+        .header-fixed-nav.hidden-phone.hidden-tablet
+            .nav
+                img(src='images/logo-xs.png', style='width: 40px;margin-top: 20px;')
+                ul
+                    li
+                        a#header-linker.scroll-link.active(href='/#header', data-soffset='0') home
+                    li
+                        a#about-linker.scroll-link(href='/#about', data-soffset='0') about
+                    li
+                        a#registration-linker.scroll-link(href='/#registration', data-soffset='0') registration
+                    li
+                        a#sponsors-linker.scroll-link(href='/#sponsors', data-soffset='0') sponsors
+                    li
+                        a#contact-linker.scroll-link(href='/#contact', data-soffset='0') contact
+            .nav2
+                div
+                    a.facebook-icon(href='#')
+                div
+                    a.twitter-icon(href='#')
+
+        .page
+            .container
+                .row(style='margin-top: 45px;')
+                    .span7.offset2
+                        h1.text-center #{name}
+                hr
+                .row(style='margin-top: 20px;')
+                    .span7.offset2
+                        p.text-center #{rules}
+                hr
+                .row(style='margin-top: 20px;')
+                    .span7.offset2
+                        -if(type == 'cs'){
+                        p.text-center
+                            a(href='/download/csguide') download computer science competitions guide book
+                        -}
+                        -if(type == 'ee'){
+                        p.text-center
+                            a(href='/download/eeguide') download electrical engineering competitions guide book
+                        -}
+                        -if(type == 'bba'){
+                        p.text-center
+                            a(href='/download/bbaguide') download bba competitions guide book
+                        -}
+                .row.cont(style='margin-top: 20px;')
+                    form.reg-form
+                        .span7.offset2
+                            input#token(type='hidden',name='_csrf',value=_csrf)
+                            input#max(type='hidden',name='max',value=max)
+                            input#min(type='hidden',name='min',value=min)
+                            input#dep(type='hidden',name='dep',value=type)
+                            input#institute( type='text', name='institue', placeholder='Institute')
+                            p.req-ins(style='color:red')
+                            input#type( type='text',value='#{name}' ,name='type',disabled='true')
+                            -if(max == 1){
+                            input#mem1(type='text',  name='mem1', placeholder='Member1(leader)')
+                            p.req-mem1(style='color:red')
+                            input#email(type='text',  name='email', placeholder="Leader's email")
+                            p.req-email(style='color:red')
+                            input#phone(type='text',  name='phone', placeholder="Leader's phone")
+                            p.req-phone(style='color:red')
+                            -}
+                            -if(max == 2){
+                            input#mem1(type='text',  name='mem1', placeholder='Member1(leader)')
+                            p.req-mem1(style='color:red')
+                            input#email(type='text',  name='email', placeholder="Leader's email")
+                            p.req-email(style='color:red')
+                            input#phone(type='text',  name='phone', placeholder="Leader's phone")
+                            p.req-phone(style='color:red')
+                            input#mem2(type='text',  name='mem2', placeholder='Member2')
+                            p.req-mem2(style='color:red')
+                            -}
+                            -if(max == 3){
+                            input#mem1(type='text',  name='mem1', placeholder='Member1(leader)')
+                            p.req-mem1(style='color:red')
+                            input#email(type='text',  name='email', placeholder="Leader's email")
+                            p.req-email(style='color:red')
+                            input#phone(type='text',  name='phone', placeholder="Leader's phone")
+                            p.req-phone(style='color:red')
+                            input#mem2(type='text',  name='mem2', placeholder='Member2')
+                            p.req-mem2(style='color:red')
+                            input#mem3(type='text',  name='mem3', placeholder='Member3')
+                            p.req-mem3(style='color:red')
+                            -}
+                            -if(max == 4){
+                            input#mem1(type='text',  name='mem1', placeholder='Member1(leader)')
+                            p.req-mem1(style='color:red')
+                            input#email(type='text',  name='email', placeholder="Leader's email")
+                            p.req-email(style='color:red')
+                            input#phone(type='text',  name='phone', placeholder="Leader's phone")
+                            p.req-phone(style='color:red')
+                            input#mem2(type='text',  name='mem2', placeholder='Member2')
+                            p.req-mem2(style='color:red')
+                            input#mem3(type='text',  name='mem3', placeholder='Member3')
+                            p.req-mem3(style='color:red')
+                            input#mem4(type='text',  name='mem4', placeholder='Member4')
+                            p.req-mem4(style='color:red')
+                            -}
+                            -if(max == 5){
+                            input#mem1(type='text',  name='mem1', placeholder='Member1(leader)')
+                            p.req-mem1(style='color:red')
+                            input#email(type='text',  name='email', placeholder="Leader's email")
+                            p.req-email(style='color:red')
+                            input#phone(type='text',  name='phone', placeholder="Leader's phone")
+                            p.req-phone(style='color:red')
+                            input#mem2(type='text',  name='mem2', placeholder='Member2')
+                            p.req-mem2(style='color:red')
+                            input#mem3(type='text',  name='mem3', placeholder='Member3')
+                            p.req-mem3(style='color:red')
+                            input#mem4(type='text',  name='mem4', placeholder='Member4')
+                            p.req-mem4(style='color:red')
+                            input#mem5(type='text',  name='mem5', placeholder='Member5')
+                            p.req-mem5(style='color:red')
+                            -}
+                            -if(type == 'cs'){
+                            input#teamname(type='text',  name='teamname', placeholder='Team name')
+                            p.req-teamname(style='color:red')
+                            textarea#why(rows="3",cols="40",name="why",class="",placeholder="Previous Competitions Participations (To Short list Candidates)")
+                            p.req-why(style='color:red')
+                            textarea#software(rows="3",cols="40",name="software",class="",placeholder="Software you need? (if any)")
+                            -}
+                            -if(type == 'gaming'){
+                            input#teamname(type='text',  name='teamname', placeholder='Team name')
+                            p.req-teamname(style='color:red')
+                            -}
+                            -if(type == 'ee'){
+                            input#teamname(type='text',  name='teamname', placeholder='Team name')
+                            p.req-teamname(style='color:red')
+                            -}
+                            input#ambassador(type='text',  name='ambassador', placeholder='Ambassador name')
+                            p.req-ambassador(style='color:red')
+                            .row(id='get-ready')
+                                article.span4.top-space
+                                    div
+                                        a.button.reg Register!
+        #footer
+            section.container-fluid
+                .row-fluid
+                    section.container
+                        .row
+                            article.span4
+                                .copyright
+                                    p Copyright © 2016 procom.net
+                            // // End of .span12
+                            article.span8
+                                .credits.text-right
+                                    p Procom ,expanding possibilities
+                            // // End of .span12
+                        // // End of .row
+                    // // End of .container
+                // // End of .row-fluid
+            // // End of .container-fluid
+        // // End of #footer
+        // Footer ends
+        //
+          JS
+          ==================================================
+        // jQuery Library File
+        script(src='javascripts/jquery-1.7.2.min.js')
+        script(src='javascripts/jquery.easing.1.3.js')
+        // Bootstrap JS Files
+        script(src='assets/js/bootstrap-transition.js')
+        script(src='assets/js/bootstrap-alert.js')
+        script(src='assets/js/bootstrap-modal.js')
+        script(src='assets/js/bootstrap-dropdown.js')
+        script(src='assets/js/bootstrap-scrollspy.js')
+        script(src='assets/js/bootstrap-tab.js')
+        script(src='assets/js/bootstrap-tooltip.js')
+        script(src='assets/js/bootstrap-popover.js')
+        script(src='assets/js/bootstrap-button.js')
+        script(src='assets/js/bootstrap-collapse.js')
+        script(src='javascripts/responsive-nav.js')
+        script(src='reg/reg.js?version=1.1')
+        script.
+            var navigation = responsiveNav("#nav", { // Selector: The ID of the wrapper
+            animate: true, // Boolean: Use CSS3 transitions, true or false
+            transition: 400, // Integer: Speed of the transition, in milliseconds
+            label: "Menu", // String: Label for the navigation toggle
+            insert: "after", // String: Insert the toggle before or after the navigation
+            customToggle: "", // Selector: Specify the ID of a custom toggle
+            openPos: "relative", // String: Position of the opened nav, relative or static
+            jsClass: "js", // String: 'JS enabled' class which is added to <html> el
+            init: function(){}, // Function: Init callback
+            open: function(){}, // Function: Open callback
+            close: function(){} // Function: Close callback
+            });
+
