@@ -180,7 +180,22 @@ app.post('/getParticipants',function(req,res){
             }
         });
 });
-
+app.post('/markstatus',function(req,res){
+    Participants.findById(req.body.id).exec(function(err,data){
+        if(data){
+            data.status = req.body.status;
+            data.save(function(err){
+                if(!err){
+                    res.send(200);
+                }else{
+                    res.send(500);
+                }
+            });
+        }else{
+            res.send(404);
+        }
+    });
+});
 /**
  * API examples routes.
  */

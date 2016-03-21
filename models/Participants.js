@@ -13,7 +13,8 @@ var participantSchema = new mongoose.Schema({
     institute:{type:String,default:""},
     type:{type:String,default:""},
     why:{type:String,default:""},
-    software:{type:String,default:""}
+    software:{type:String,default:""},
+    status:{type:String,default:"notpaid"}
 },{
     collection:"Participants"
 });

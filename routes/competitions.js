@@ -257,6 +257,13 @@ var competitions = {
         max:1,
         min:1,
         type:'gaming'
+    },
+    csgo :{
+        name:"CS go",
+        desc:"",
+        max:5,
+        min:5,
+        type:'gaming'
     }
 
 };
